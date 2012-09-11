@@ -14,6 +14,8 @@ int numEvents;
 
 int computeResult(int row, int column)
 {
+	// cout << row << column << m[row][column] << endl;
+
 	if(m[row][column] != -1)
 	{
 		return m[row][column];
@@ -74,12 +76,24 @@ int main()
 
 	cin >> numEvents;
 
+	// cin.clear();
+	// cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
+	// cin.getline(solution, numEvents);
+
 	for(int i = 0; i < numEvents; i++)
 	{
 		cin >> temp;
-		solution[temp - 1] = i;		
+		solution[temp - 1] = i;
+		// cout << temp << endl;
 		converted[i] = temp - 1;
 	}
+
+	// for(int i = 0; i < numEvents; i++)
+	// {
+	// 	cout << solution[i] + 1 << " ";
+	// }
+	// cout << endl;
 
 	while(true)
 	{
@@ -93,10 +107,19 @@ int main()
 		answer[temp - 1] = 0;
 
 		for(int i = 1; i < numEvents; i++)
-		{			
+		{
+			// cin >> answer[i];
 			cin >> temp;
 			answer[temp - 1] = i;
+			// cout << temp << endl;
 		}
+
+		// for(int i = 0; i < numEvents; i++)
+		// {
+		// 	cout << answer[i] + 1 << " ";
+		// }
+		// cout << endl;
+
 
 		for(int i = 0; i < numEvents; i++)
 		{
@@ -108,6 +131,15 @@ int main()
 		}
 
 		result = computeResult(numEvents - 1, numEvents - 1);
+
+		// for(int i = 0; i < numEvents; i++)
+		// {
+		// 	for(int j = 0; j < numEvents; j++)
+		// 	{
+		// 		cout << m[i][j] << " ";
+		// 	}
+		// 	cout << endl;	
+		// }
 
 		cout << result << endl;
 	}
